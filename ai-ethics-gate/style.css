@@ -30,12 +30,17 @@ body {
     background-color: var(--primary-bg);
     color: var(--text-main);
     line-height: 1.6;
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.container {
+.content-wrap {
+    flex: 1;
+    padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
 }
 
 header {
@@ -112,104 +117,172 @@ header p {
 .card p {
     color: var(--text-sub);
     font-size: 0.95rem;
-    margin-bottom: 1.5rem;
     flex-grow: 1;
-}
-
-/* Checkbox Styles */
-.check-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-    padding-left: 30px;
-    cursor: pointer;
-    font-size: 0.95rem;
-    font-weight: 600;
-    user-select: none;
-    color: var(--text-main);
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px dashed #e2e8f0;
-}
-
-.check-container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-.checkmark {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    height: 22px;
-    width: 22px;
-    background-color: #f1f5f9;
-    border: 2px solid #cbd5e1;
-    border-radius: 6px;
-    transition: all 0.2s ease;
-}
-
-.check-container:hover input ~ .checkmark {
-    border-color: var(--btn-active);
-}
-
-.check-container input:checked ~ .checkmark {
-    background-color: var(--btn-active);
-    border-color: var(--btn-active);
-}
-
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-.check-container input:checked ~ .checkmark:after {
-    display: block;
-}
-
-.check-container .checkmark:after {
-    left: 6px;
-    top: 2px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
 }
 
 .action-section {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 #enter-btn {
-    background-color: var(--btn-disabled);
+    background-color: var(--btn-active);
     color: white;
     font-size: 1.1rem;
     font-weight: 700;
-    padding: 1rem 2.5rem;
+    padding: 1.2rem 3rem;
     border: none;
     border-radius: 9999px;
-    cursor: not-allowed;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-}
-
-#enter-btn.active {
-    background-color: var(--btn-active);
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.3);
 }
 
-#enter-btn.active:hover {
+#enter-btn:hover {
     background-color: var(--btn-hover);
     transform: translateY(-2px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
+}
+
+/* Footer Styles */
+.site-footer {
+    background-color: #f1f5f9;
+    border-top: 1px solid #e2e8f0;
+    padding: 2rem 1rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-link {
+    background: none;
+    border: none;
+    color: var(--text-sub);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: var(--text-main);
+}
+
+.divider {
+    color: #cbd5e1;
+}
+
+.footer-info p {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.show .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-size: 1.25rem;
+    color: #0f172a;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+    color: #0f172a;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.policy-text h3 {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+}
+
+.policy-text h3:first-child {
+    margin-top: 0;
+}
+
+.policy-text p {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -219,5 +292,11 @@ header p {
     
     .guideline-grid {
         grid-template-columns: 1fr;
+    }
+    
+    #enter-btn {
+        width: 100%;
+        padding: 1rem;
+        font-size: 1rem;
     }
 }

@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <div class="container content-wrap">
         <header>
             <h1>AI 윤리 핵심 가이드</h1>
             <p>인공지능을 올바르게 활용하기 위해 다음 가이드를 꼭 읽고 확인해 주세요.</p>
@@ -23,13 +23,7 @@
                 </div>
                 <h2>생성형 AI를 쓰기 전, '왜' 쓰는지 말할 수 있어야 해요.</h2>
                 <p>생성형 AI를 사용하기 전에 '지금 내가 왜 쓰려고 하지?'라고 스스로 물어보세요. 생성형 AI는 내 생각을 대신해주는 게 아니라, 내 생각을 도와주는 도구임을 기억하세요.</p>
-                <label class="check-container">
-                    <input type="checkbox" class="guide-check">
-                    <span class="checkmark"></span>
-                    확인했습니다
-                </label>
             </div>
-
             <!-- 가이드 2 -->
             <div class="card">
                 <div class="card-header type-orange">
@@ -38,13 +32,7 @@
                 </div>
                 <h2>생성형 AI에게 물어보기 전, 내 생각을 먼저 말해요.</h2>
                 <p>막막할 때 바로 묻고 싶은 마음이 들 수 있지만, 먼저 스스로 시도해 보아야 나의 성장에 도움이 돼요. 내 아이디어를 먼저 적거나 정리한 뒤 활용하세요.</p>
-                <label class="check-container">
-                    <input type="checkbox" class="guide-check">
-                    <span class="checkmark"></span>
-                    확인했습니다
-                </label>
             </div>
-
             <!-- 가이드 3 -->
             <div class="card">
                 <div class="card-header type-orange">
@@ -53,13 +41,7 @@
                 </div>
                 <h2>생성형 AI가 틀릴 수 있다는 점을 알아요.</h2>
                 <p>알려준 내용은 항상 '정말 맞을까?' 하고 한 번 더 확인하는 습관을 가져요. 중요한 내용일수록 책을 찾아보거나 선생님께 꼭 다시 확인하세요.</p>
-                <label class="check-container">
-                    <input type="checkbox" class="guide-check">
-                    <span class="checkmark"></span>
-                    확인했습니다
-                </label>
             </div>
-
             <!-- 가이드 4 -->
             <div class="card">
                 <div class="card-header type-green">
@@ -68,13 +50,7 @@
                 </div>
                 <h2>생성형 AI와 함께 상상하며 내 생각을 더 크게 키워요.</h2>
                 <p>생성형 AI의 결과물을 그대로 사용하지 않고, 나의 경험과 생각을 더하여 나만의 색깔을 담은 최종 결과물을 만들어요.</p>
-                <label class="check-container">
-                    <input type="checkbox" class="guide-check">
-                    <span class="checkmark"></span>
-                    확인했습니다
-                </label>
             </div>
-
             <!-- 가이드 5 -->
             <div class="card">
                 <div class="card-header type-blue">
@@ -83,13 +59,7 @@
                 </div>
                 <h2>나의 정보와 비밀을 말하지 않아요.</h2>
                 <p>이름, 주소, 학교, 전화번호 같은 개인정보는 알려주면 안 돼요. 나의 고민을 지나치게 의지하기보다 실제 대화를 통해 마음을 나누어요.</p>
-                <label class="check-container">
-                    <input type="checkbox" class="guide-check">
-                    <span class="checkmark"></span>
-                    확인했습니다
-                </label>
             </div>
-
             <!-- 가이드 6 -->
             <div class="card">
                 <div class="card-header type-yellow">
@@ -98,19 +68,75 @@
                 </div>
                 <h2>생성형 AI의 도움을 받았다면 숨기지 않고 정직하게 이야기해요.</h2>
                 <p>어느 부분이 생성형 AI의 것이고 어느 부분이 나의 것인지 명확히 밝히는 것은 나 자신을 속이지 않는 정직한 태도예요.</p>
-                <label class="check-container">
-                    <input type="checkbox" class="guide-check">
-                    <span class="checkmark"></span>
-                    확인했습니다
-                </label>
             </div>
         </div>
 
         <div class="action-section">
-            <button id="enter-btn" disabled>모든 가이드에 동의 후 본 활동 들어가기</button>
+            <button id="enter-btn" class="active">나는 윤리 핵심가이드를 빠짐없이 읽고 이를 실천하겠습니다.</button>
         </div>
     </div>
     
+    <!-- 푸터 영역 -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <button type="button" id="btn-terms" class="footer-link">이용약관</button>
+                <span class="divider">|</span>
+                <button type="button" id="btn-privacy" class="footer-link">개인정보처리방침</button>
+            </div>
+            <div class="footer-info">
+                <p>정보관리책임자: luvseji</p>
+                <p>Copyright © 2026 luvseji33. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 모달 팝업 -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">제목</h2>
+                <button type="button" id="modal-close" class="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body-content">
+                <!-- 자바스크립트로 내용 주입 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 숨겨진 약관/방침 내용 -->
+    <div id="content-terms" style="display:none;">
+        <div class="policy-text">
+            <h3>제1조 (목적)</h3>
+            <p>본 약관은 사용자가 'AI 윤리 핵심 가이드 웹앱'(이하 '본 서비스')을 이용함에 있어 준수해야 할 기본적인 사항과 AI 윤리 가이드라인의 실천을 규정함을 목적으로 합니다.</p>
+            
+            <h3>제2조 (서비스의 제공)</h3>
+            <p>본 서비스는 생성형 AI를 올바르고 안전하게 활용하기 위한 6가지 핵심 가이드를 제공하며, 사용자가 이를 숙지하고 동의하는 게이트웨이(Gateway) 역할을 수행합니다.</p>
+            
+            <h3>제3조 (사용자의 의무)</h3>
+            <p>본 서비스를 이용하는 사용자는 'AI 윤리 핵심 가이드' 6가지를 숙지하고 실천할 의무가 있습니다.</p>
+            
+            <h3>제4조 (책임의 한계)</h3>
+            <p>1. 본 서비스는 AI 윤리 교육을 위한 가이드라인을 제공할 뿐이며, 사용자가 생성형 AI를 활용하여 발생한 결과물이나 문제에 대해서는 법적 책임을 지지 않습니다.<br>
+            2. 사용자는 전적으로 자신의 판단과 책임하에 생성형 AI 플랫폼을 이용해야 합니다.</p>
+        </div>
+    </div>
+
+    <div id="content-privacy" style="display:none;">
+        <div class="policy-text">
+            <h3>1. 개인정보의 수집 및 이용 목적</h3>
+            <p>본 서비스는 AI 윤리 교육 및 가이드라인 숙지를 목적으로 운영되며, <strong>사용자의 어떠한 개인정보(이름, 주소, 전화번호, 이메일, 학교 등)도 수집, 저장, 처리하지 않습니다.</strong></p>
+            
+            <h3>2. 생성형 AI 활용에 관한 안전성</h3>
+            <p>본 서비스는 [가이드 5: 안전과 관계]에 따라 사용자에게 다음과 같은 주의사항을 안내합니다.<br>
+            - 사용자는 생성형 AI를 이용할 때 개인정보나 중요한 비밀을 입력해서는 안 됩니다.<br>
+            - 본 서비스 내에는 개인정보를 입력받는 어떠한 입력 폼(Form)이나 데이터베이스(DB)도 존재하지 않습니다.</p>
+            
+            <h3>3. 기타 사항</h3>
+            <p>본 서비스는 개인정보를 제3자에게 제공하거나 위탁하지 않으며, 쿠키 등 트래킹 도구를 일절 사용하지 않습니다.</p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
