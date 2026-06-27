@@ -1,0 +1,223 @@
+:root {
+    --primary-bg: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-sub: #475569;
+    
+    /* Guide Colors */
+    --color-orange: #f59e0b;
+    --color-orange-light: #fef3c7;
+    --color-green: #10b981;
+    --color-green-light: #d1fae5;
+    --color-blue: #3b82f6;
+    --color-blue-light: #dbeafe;
+    --color-yellow: #eab308;
+    --color-yellow-light: #fef08a;
+
+    --btn-disabled: #cbd5e1;
+    --btn-active: #4f46e5;
+    --btn-hover: #4338ca;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #0f172a;
+}
+
+header p {
+    color: var(--text-sub);
+    font-size: 1.1rem;
+}
+
+.guideline-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+    width: fit-content;
+}
+
+.card-header.type-orange { background-color: var(--color-orange-light); color: #b45309; }
+.card-header.type-green { background-color: var(--color-green-light); color: #047857; }
+.card-header.type-blue { background-color: var(--color-blue-light); color: #1d4ed8; }
+.card-header.type-yellow { background-color: var(--color-yellow-light); color: #a16207; }
+
+.icon {
+    font-size: 1.2rem;
+}
+
+.title-badge {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.card h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.card p {
+    color: var(--text-sub);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Checkbox Styles */
+.check-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    user-select: none;
+    color: var(--text-main);
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px dashed #e2e8f0;
+}
+
+.check-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 22px;
+    width: 22px;
+    background-color: #f1f5f9;
+    border: 2px solid #cbd5e1;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.check-container:hover input ~ .checkmark {
+    border-color: var(--btn-active);
+}
+
+.check-container input:checked ~ .checkmark {
+    background-color: var(--btn-active);
+    border-color: var(--btn-active);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.check-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.check-container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.action-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+#enter-btn {
+    background-color: var(--btn-disabled);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 1rem 2.5rem;
+    border: none;
+    border-radius: 9999px;
+    cursor: not-allowed;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+#enter-btn.active {
+    background-color: var(--btn-active);
+    cursor: pointer;
+}
+
+#enter-btn.active:hover {
+    background-color: var(--btn-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .guideline-grid {
+        grid-template-columns: 1fr;
+    }
+}
